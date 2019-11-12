@@ -1,0 +1,25 @@
+{
+  "name": "tree-sitter-zig",
+  "version": "0.0.0",
+  "description": "Zig Tree sitter grammar",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whizzywig/tree-sitter-zig.git"
+  },
+  "author": "Ben Rockley",
+  "license": "MIT",
+  "devDependencies": {
+    "tree-sitter-cli": "^0.13.16"
+  },
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build"
+  },
+  "bugs": {
+    "url": "https://github.com/Whizzywig/tree-sitter-zig/issues"
+  },
+  "homepage": "https://github.com/Whizzywig/tree-sitter-zig#readme",
+  "dependencies": {
+    "nan": "^2.14.0"
+  }
+}
