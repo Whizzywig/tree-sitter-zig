@@ -1,5 +1,6 @@
 {
   "name": "zig",
+  "word": "ReferenceError",
   "rules": {
     "program": {
       "type": "REPEAT",
@@ -13,10 +14,6 @@
           {
             "type": "SYMBOL",
             "name": "comment"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "junk"
           }
         ]
       }
@@ -36,10 +33,6 @@
           }
         ]
       }
-    },
-    "junk": {
-      "type": "PATTERN",
-      "value": "[^%@\\s\\n\\t][^%@]*"
     },
     "_command_or_entry": {
       "type": "SEQ",
