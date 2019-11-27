@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-zig",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Zig Tree sitter grammar",
   "main": "index.js",
   "repository": {
@@ -10,7 +10,7 @@
   "author": "Ben Rockley",
   "license": "MIT",
   "devDependencies": {
-    "tree-sitter-cli": "^0.13.16"
+    "tree-sitter-cli": "^0.15.12"
   },
   "scripts": {
     "build": "tree-sitter generate && node-gyp build"

@@ -1,7 +1,7 @@
 module.exports = grammar({
   name: "zig",
 
-  extras: $ => [/\s/, $.comment, $.doc_comment],
+  extras: $ => [/\s/, $.comment],
 
   word: $ => $.identifier,
 
@@ -37,18 +37,21 @@ module.exports = grammar({
     )),
 
     _declaration_statement: $ => choice(
-      $.assignment_statement,
+      $.empty_statment,
+      //$.assignment_statement,
     ),
+
+    empty_statment: $ => ';',
 
     assignment_statement: $ => seq(
       optional($.visibility_modifier),
-      //optional(alias(choice('comptime', 'threadlocal'), $.assignment_modifier)),
+      optional(alias(choice('comptime', 'threadlocal'), $.assignment_modifier)),
       choice('const', 'var'),
       field('name', $.identifier),
-      optional(seq(
-        ':',
-        field('type', $._type),
-      )),
+      //optional(seq(
+      //  ':',
+      //  field('type', $._type),
+      //)),
       '=',
       field('expression', $._expression),
       ';'
@@ -67,7 +70,7 @@ module.exports = grammar({
       ')',
     ),
     //expressions
-    build_in_call_expr: $ => prec(PREC.call, seq(
+    build_in_call_expr: $ => prec(14, seq(
       '@',
       field('function', $.identifier),
       field('arguments', $.arguments),
@@ -76,3 +79,11 @@ module.exports = grammar({
     _command_or_entry: $ => seq("@", /[a-zA-Z]+/)
   }
 });
+
+function sepBy1(sep, rule) {
+  return seq(rule, repeat(seq(sep, rule)), optional(sep))
+}
+
+function sepBy(sep, rule) {
+  return optional(sepBy1(sep, rule))
+}
