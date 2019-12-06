@@ -1,0 +1,26 @@
+========================================
+Basic Assignment
+========================================
+
+;
+//st leadt something works
+const i=10;
+var j=100;
+
+comptime const test = 3;
+
+---
+
+(program
+  (empty_statment)
+  (comment)
+  (assignment_statement
+    (identifier)
+    (numeric_literal))
+  (assignment_statement
+    (identifier)
+    (numeric_literal))
+  (assignment_statement
+    (assignment_modifier)
+    (identifier)
+    (numeric_literal)))
